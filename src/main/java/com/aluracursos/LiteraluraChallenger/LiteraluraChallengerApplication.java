@@ -2,6 +2,7 @@ package com.aluracursos.LiteraluraChallenger;
 
 import com.aluracursos.LiteraluraChallenger.model.DatosLibros;
 import com.aluracursos.LiteraluraChallenger.service.ConsumoApi;
+import com.aluracursos.LiteraluraChallenger.service.DeserializarDatos;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import org.springframework.boot.CommandLineRunner;
@@ -25,8 +26,9 @@ public class LiteraluraChallengerApplication implements CommandLineRunner {
 
 		//System.out.println("json = " + json) ;    //ver lo que esta entregando el api en json
 
-
-
+		DeserializarDatos  deserializar = new DeserializarDatos() ;
+        var datos = deserializar.obtenerDatos( json , DatosLibros.class);
+		System.out.println("datos = " + datos);
 	}
 
 }
