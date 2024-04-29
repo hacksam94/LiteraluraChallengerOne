@@ -1,6 +1,9 @@
 package com.aluracursos.LiteraluraChallenger;
 
+import com.aluracursos.LiteraluraChallenger.model.DatosLibros;
 import com.aluracursos.LiteraluraChallenger.service.ConsumoApi;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.ObjectCodec;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +24,9 @@ public class LiteraluraChallengerApplication implements CommandLineRunner {
 		var json = consumoApi.obtenerDatos( "https://gutendex.com/books/" )  ;
 
 		//System.out.println("json = " + json) ;    //ver lo que esta entregando el api en json
-		
-		
+
+
+
 	}
 
 }
