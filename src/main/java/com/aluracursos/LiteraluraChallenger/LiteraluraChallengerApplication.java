@@ -1,6 +1,8 @@
 package com.aluracursos.LiteraluraChallenger;
 
+import com.aluracursos.LiteraluraChallenger.model.Author;
 import com.aluracursos.LiteraluraChallenger.model.DatosLibros;
+import com.aluracursos.LiteraluraChallenger.model.book;
 import com.aluracursos.LiteraluraChallenger.service.ConsumoApi;
 import com.aluracursos.LiteraluraChallenger.service.DeserializarDatos;
 import com.fasterxml.jackson.core.JsonParser;
@@ -28,7 +30,11 @@ public class LiteraluraChallengerApplication implements CommandLineRunner {
 
 		DeserializarDatos  deserializar = new DeserializarDatos() ;
         var datos = deserializar.obtenerDatos( json , DatosLibros.class);
-		System.out.println("datos = " + datos);
+
+		String name = ((Author)((book)datos.getResults().get(0)).getAuthors().get(0)).getName();
+		System.out.println("count = " + datos.getCount());
+		System.out.println("name = " + name);
+
 	}
 
 }
