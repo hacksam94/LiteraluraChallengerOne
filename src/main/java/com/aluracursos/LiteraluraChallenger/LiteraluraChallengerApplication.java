@@ -1,16 +1,9 @@
 package com.aluracursos.LiteraluraChallenger;
-
-import com.aluracursos.LiteraluraChallenger.model.Author;
-import com.aluracursos.LiteraluraChallenger.model.DatosLibros;
-import com.aluracursos.LiteraluraChallenger.model.book;
-import com.aluracursos.LiteraluraChallenger.service.ConsumoApi;
-import com.aluracursos.LiteraluraChallenger.service.DeserializarDatos;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.ObjectCodec;
+import com.aluracursos.LiteraluraChallenger.service.implementacionApi;
+import com.aluracursos.LiteraluraChallenger.vista.Menu;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.w3c.dom.ls.LSOutput;
 
 @SpringBootApplication
 public class LiteraluraChallengerApplication implements CommandLineRunner {
@@ -20,20 +13,37 @@ public class LiteraluraChallengerApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public  void run(String... args) throws Exception {
 
-       var consumoApi = new ConsumoApi() ;
 
-		var json = consumoApi.obtenerDatos( "https://gutendex.com/books/" )  ;
+		boolean salir = false;
+		while (!salir) {
+			Menu.mostrarMenu();
+			int opcion = Menu.obtenerOpcion();
+			Menu.procesarOpcion(opcion);
+			if (opcion == 0) {
+				salir = true;
+			}
+		}
 
-		//System.out.println("json = " + json) ;    //ver lo que está entregando el api en json
 
-		DeserializarDatos  deserializar = new DeserializarDatos() ;
-        var datos = deserializar.obtenerDatos( json , DatosLibros.class);
+//
+			implementacionApi implement = new implementacionApi();
+		    var	data = implement.listarLibros();
 
-		String name = ((Author)((book)datos.getResults().get(0)).getAuthors().get(0)).getName();
-		System.out.println("count = " + datos.getCount());
-		System.out.println("name = " + name);
+     		System.out.println(data);
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}
 

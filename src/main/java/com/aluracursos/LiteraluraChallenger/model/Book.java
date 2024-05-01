@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-public class book {
+public class Book {
     long id;
     String title;
     ArrayList<Author> authors;
@@ -19,7 +19,7 @@ public class book {
     @JsonAlias({"download_count"})
     int downloadCount;
 
-    public book() {
+    public Book() {
     }
 
     public long getId() {

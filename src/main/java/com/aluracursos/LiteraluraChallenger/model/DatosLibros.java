@@ -8,26 +8,22 @@ import java.util.ArrayList;
 
 public class DatosLibros {
     int count;
-    ArrayList<book> results;
+    ArrayList<Book> results;
 
-    public  DatosLibros() {
+    public ArrayList<Book> getResults() {
+        return results;
     }
 
-    public ArrayList<book> getResults() {
-        return this.results;
-    }
-
-    public void setResults(ArrayList<book> results) {
+    public void setResults(ArrayList<Book> results) {
         this.results = results;
     }
 
     public int getCount() {
-        return this.count;
+        return count;
     }
 
     public void setCount(int count) {
         this.count = count;
     }
+
 }
-
-
