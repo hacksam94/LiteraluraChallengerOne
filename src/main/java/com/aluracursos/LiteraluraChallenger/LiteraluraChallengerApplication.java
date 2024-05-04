@@ -1,5 +1,5 @@
 package com.aluracursos.LiteraluraChallenger;
-import com.aluracursos.LiteraluraChallenger.service.implementacionApi;
+import com.aluracursos.LiteraluraChallenger.service.ImplementacionApi;
 import com.aluracursos.LiteraluraChallenger.vista.Menu;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,8 +28,8 @@ public class LiteraluraChallengerApplication implements CommandLineRunner {
 
 
 //
-			implementacionApi implement = new implementacionApi();
-		    var	data = implement.listarLibros();
+			ImplementacionApi implement = new ImplementacionApi();
+		    var	data = implement.listBooks();
 
      		System.out.println(data);
 

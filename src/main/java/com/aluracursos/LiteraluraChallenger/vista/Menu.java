@@ -1,15 +1,13 @@
 package com.aluracursos.LiteraluraChallenger.vista;
-import com.aluracursos.LiteraluraChallenger.model.Book;
-import com.aluracursos.LiteraluraChallenger.model.DatosLibros;
-import com.aluracursos.LiteraluraChallenger.service.ConsumoApi;
-import com.aluracursos.LiteraluraChallenger.service.DeserializarDatos;
-import com.aluracursos.LiteraluraChallenger.service.implementacionApi;
-
+import com.aluracursos.LiteraluraChallenger.service.ImplementacionApi;
+import com.aluracursos.LiteraluraChallenger.service.ImplementacionMenu;
 import java.util.Scanner;
 
 
 
 public class Menu {
+
+    public static String libroBuscado = "" ;
 
 
 
@@ -30,15 +28,18 @@ public class Menu {
 
 
     public static void procesarOpcion(int opcion) throws Exception {
+
         switch (opcion) {
             case 1:
-                System.out.println("""
-                        Selecciono la opcion 1
-                        ##############################################################
-                        """ );
+                System.out.println("escribe el titulo del  libro");
+
+                Scanner valorIngresadoUsuario = new Scanner(System.in);
+                libroBuscado = valorIngresadoUsuario.nextLine();
+
+                System.out.println(ImplementacionMenu.opcionOneMenu() );
                 break;
             case 2:
-                System.out.println( implementacionApi.opcionTwoMenu());
+                System.out.println(ImplementacionMenu.opcionTwoMenu());
                 break;
             case 3:
                 System.out.println("Selecciono la opcion 3");
@@ -55,5 +56,8 @@ public class Menu {
             default:
                 System.out.println("Opcion invalida");
         }
+
+
+
     }
 }
