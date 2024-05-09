@@ -3,6 +3,9 @@ package com.aluracursos.LiteraluraChallenger.model;
 import java.util.ArrayList;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.persistence.Entity;
+
+@Entity
 
 public class Book {
     long id;
