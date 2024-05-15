@@ -3,13 +3,18 @@ package com.aluracursos.LiteraluraChallenger.model;
 import java.util.ArrayList;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAlias;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name= "libros")
 
 public class Book {
-    long id;
-    String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(unique = true)
+     String title;
+    @Enumerated(EnumType.STRING)
     ArrayList<Author> authors;
     ArrayList<Translator> translators;
     ArrayList<String> subjects;

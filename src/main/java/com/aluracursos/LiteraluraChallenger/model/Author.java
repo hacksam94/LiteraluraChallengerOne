@@ -1,6 +1,19 @@
 package com.aluracursos.LiteraluraChallenger.model;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name="autor")
+
 public class Author {
+
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(unique = true)
     String name;
     @JsonAlias({"birth_year"})
     int birthYear;
@@ -9,7 +22,13 @@ public class Author {
 
     public Author() {
     }
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getName() {
         return this.name;
     }
